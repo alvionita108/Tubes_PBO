@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Bulan Mei 2020 pada 08.02
+-- Waktu pembuatan: 11 Bulan Mei 2020 pada 08.21
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tubes`
+-- Database: `tokoberas`
 --
 
 -- --------------------------------------------------------

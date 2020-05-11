@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gudang;
+package PerBerasan;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -31,7 +31,7 @@ public class GUDANG extends javax.swing.JFrame {
         try{
             int no = 1;
             String sql = "SELECT * FROM gudang";
-            java.sql.Connection conn = (Connection)gudangku.configDB();
+            java.sql.Connection conn = (Connection)tokoberas.configDB();
             java.sql.Statement sta = conn.createStatement();
             java.sql.ResultSet res = sta.executeQuery(sql);
             
@@ -190,7 +190,7 @@ public class GUDANG extends javax.swing.JFrame {
     private void tbSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSaveActionPerformed
         try{
             String sql = "INSERT INTO gudang VALUES ('"+txtMerk.getText()+"','"+txtKode.getText()+"','"+txtStok.getText()+"')";
-            java.sql.Connection conn =  (Connection)gudangku.configDB();
+            java.sql.Connection conn =  (Connection)tokoberas.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
@@ -216,7 +216,7 @@ public class GUDANG extends javax.swing.JFrame {
     private void tbEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbEditActionPerformed
         try{
             String sql = "UPDATE gudang SET merk_beras='"+txtMerk.getText()+"',kode_beras='"+txtKode.getText()+"',stok='"+txtStok.getText()+"' WHERE merk_beras='"+txtMerk.getText()+"'";
-            java.sql.Connection conn = (Connection)gudangku.configDB();
+            java.sql.Connection conn = (Connection)tokoberas.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
@@ -230,7 +230,7 @@ public class GUDANG extends javax.swing.JFrame {
     private void tbHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbHapusActionPerformed
         try{
             String sql = "DELETE FROM gudang WHERE kode_beras='"+txtKode.getText()+"'";
-            java.sql.Connection conn = (Connection)gudangku.configDB();
+            java.sql.Connection conn = (Connection)tokoberas.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2020 pada 18.26
+-- Waktu pembuatan: 11 Bulan Mei 2020 pada 08.21
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tubes`
+-- Database: `tokoberas`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,35 @@ SET time_zone = "+00:00";
 CREATE TABLE `gudang` (
   `merk_beras` varchar(20) NOT NULL,
   `kode_beras` varchar(7) NOT NULL,
-  `stok` varchar(4) NOT NULL
+  `stok` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `gudang`
+--
+
+INSERT INTO `gudang` (`merk_beras`, `kode_beras`, `stok`) VALUES
+('ROJO LELE', 'RL101', 30);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `gudang`
+--
+ALTER TABLE `gudang`
+  ADD UNIQUE KEY `kode_beras` (`kode_beras`);
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `gudang`
+--
+ALTER TABLE `gudang`
+  ADD CONSTRAINT `gudang_ibfk_1` FOREIGN KEY (`kode_beras`) REFERENCES `beras` (`kode_beras`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

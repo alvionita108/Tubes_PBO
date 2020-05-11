@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gudang;
+package PerBerasan;
 
 /**
  *
@@ -14,8 +14,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class gudangku {
-    private static Connection gudang;
+public class tokoberas {
+    private static Connection tokoberas;
     public static Connection configDB() throws SQLException{
         try{
             String url = "jdbc:mysql://localhost/tubes?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -23,10 +23,10 @@ public class gudangku {
             String pass = "";
             
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            gudang = DriverManager.getConnection(url, user, pass);
+            tokoberas = DriverManager.getConnection(url, user, pass);
         }catch(SQLException e){
             System.out.println("Koneksi ke Database Gagal" + e.getMessage());
         }
-        return gudang;
+        return tokoberas;
     }
 }

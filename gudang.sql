@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Bulan Mei 2020 pada 08.21
+-- Waktu pembuatan: 14 Bulan Mei 2020 pada 10.39
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.4
+-- Versi PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,15 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `gudang` (
   `merk_beras` varchar(20) NOT NULL,
   `kode_beras` varchar(7) NOT NULL,
-  `stok` int(4) NOT NULL
+  `stok` int(4) NOT NULL,
+  `id_penjual` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `gudang`
 --
 
-INSERT INTO `gudang` (`merk_beras`, `kode_beras`, `stok`) VALUES
-('ROJO LELE', 'RL101', 30);
+INSERT INTO `gudang` (`merk_beras`, `kode_beras`, `stok`, `id_penjual`) VALUES
+('KOKI', 'KK102', 15, 332211),
+('ROJO LELE', 'RL101', 10, 332211),
+('ROJO LELE', 'RL102', 21, 332211);
 
 --
 -- Indexes for dumped tables
@@ -48,7 +51,8 @@ INSERT INTO `gudang` (`merk_beras`, `kode_beras`, `stok`) VALUES
 -- Indeks untuk tabel `gudang`
 --
 ALTER TABLE `gudang`
-  ADD UNIQUE KEY `kode_beras` (`kode_beras`);
+  ADD UNIQUE KEY `kode_beras` (`kode_beras`),
+  ADD KEY `id_penjual` (`id_penjual`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -58,7 +62,8 @@ ALTER TABLE `gudang`
 -- Ketidakleluasaan untuk tabel `gudang`
 --
 ALTER TABLE `gudang`
-  ADD CONSTRAINT `gudang_ibfk_1` FOREIGN KEY (`kode_beras`) REFERENCES `beras` (`kode_beras`);
+  ADD CONSTRAINT `gudang_ibfk_1` FOREIGN KEY (`kode_beras`) REFERENCES `beras` (`kode_beras`) ON DELETE CASCADE,
+  ADD CONSTRAINT `gudang_ibfk_2` FOREIGN KEY (`id_penjual`) REFERENCES `admin_penjual` (`id_penjual`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

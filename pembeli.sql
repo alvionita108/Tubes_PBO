@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2020 pada 07.17
+-- Waktu pembuatan: 14 Bulan Mei 2020 pada 10.39
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.27
+-- Versi PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `toko_beras`
+-- Database: `tokoberas`
 --
 
 -- --------------------------------------------------------

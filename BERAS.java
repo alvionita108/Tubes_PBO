@@ -14,11 +14,11 @@ public class BERAS extends javax.swing.JFrame {
             model.addColumn("No. ");
             model.addColumn("Merk Beras");
             model.addColumn("Harga");
-            model.addColumn("Jenis");
+            model.addColumn("Berat / Karung");
             
             try{
                 int no = 1;
-                String sql = "SELECT merk_beras, harga, jenis_beras FROM beras";
+                String sql = "SELECT merk_beras, harga, berat_karung FROM beras";
                 java.sql.Connection conn = (Connection)tokoberas.configDB();
                 java.sql.Statement sta = conn.createStatement();
                 java.sql.ResultSet res = sta.executeQuery(sql);
@@ -81,6 +81,11 @@ public class BERAS extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelBERAS);
 
         tbLanjut.setText("LANJUT KE PEMESANAN");
+        tbLanjut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbLanjutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,6 +123,10 @@ public class BERAS extends javax.swing.JFrame {
     private void tbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbExitActionPerformed
         System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_tbExitActionPerformed
+
+    private void tbLanjutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbLanjutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbLanjutActionPerformed
 
     /**
      * @param args the command line arguments

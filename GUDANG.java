@@ -30,7 +30,7 @@ public class GUDANG extends javax.swing.JFrame {
         
         try{
             int no = 1;
-            String sql = "SELECT * FROM gudang";
+            String sql = "SELECT merk_beras, kode_beras, stok FROM gudang";
             java.sql.Connection conn = (Connection)tokoberas.configDB();
             java.sql.Statement sta = conn.createStatement();
             java.sql.ResultSet res = sta.executeQuery(sql);
@@ -133,7 +133,7 @@ public class GUDANG extends javax.swing.JFrame {
                 tbHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(tbHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+        getContentPane().add(tbHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         tbOut.setForeground(new java.awt.Color(255, 51, 0));
         tbOut.setText("X");
@@ -150,7 +150,7 @@ public class GUDANG extends javax.swing.JFrame {
                 tbSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(tbSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, -1));
+        getContentPane().add(tbSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
         tabelGudang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,7 +170,7 @@ public class GUDANG extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tabelGudang);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 360, 150));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 360, 120));
 
         tbEdit.setText("Edit Data");
         tbEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +178,7 @@ public class GUDANG extends javax.swing.JFrame {
                 tbEditActionPerformed(evt);
             }
         });
-        getContentPane().add(tbEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 80, -1));
+        getContentPane().add(tbEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,7 +189,7 @@ public class GUDANG extends javax.swing.JFrame {
 
     private void tbSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSaveActionPerformed
         try{
-            String sql = "INSERT INTO gudang VALUES ('"+txtMerk.getText()+"','"+txtKode.getText()+"','"+txtStok.getText()+"')";
+            String sql = "INSERT INTO gudang VALUES ('"+txtMerk.getText()+"','"+txtKode.getText()+"','"+txtStok.getText()+"', '332211')";
             java.sql.Connection conn =  (Connection)tokoberas.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -215,7 +215,7 @@ public class GUDANG extends javax.swing.JFrame {
 
     private void tbEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbEditActionPerformed
         try{
-            String sql = "UPDATE gudang SET merk_beras='"+txtMerk.getText()+"',kode_beras='"+txtKode.getText()+"',stok='"+txtStok.getText()+"' WHERE merk_beras='"+txtMerk.getText()+"'";
+            String sql = "UPDATE gudang SET merk_beras='"+txtMerk.getText()+"',kode_beras='"+txtKode.getText()+"',stok='"+txtStok.getText()+"',id_penjual='332211' WHERE kode_beras='"+txtKode.getText()+"'";
             java.sql.Connection conn = (Connection)tokoberas.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();

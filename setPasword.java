@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Beras;
+package perLoginan;
+
+import java.awt.Dimension;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +17,22 @@ public class setPasword extends javax.swing.JFrame {
      */
     public setPasword() {
         initComponents();
+        
+        //mengatur agar jendela di tengah
+        //mendapat ukuran dari layar
+        Dimension Layar =Toolkit.getDefaultToolkit().getScreenSize();
+        
+        //mengatur titik x dan titik y
+        int x= Layar.width/2 - this.getSize().width/2;
+        int y= Layar.height/2 - this.getSize().height/2;
+        
+        this.setLocation(x, y);
+    }
+    
+     private void clear(){
+        txtUsername.setText("");
+        txtPwbaru.setText("");
+        
     }
 
     /**
@@ -32,32 +49,50 @@ public class setPasword extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        txtUbahPassword1 = new javax.swing.JPasswordField();
-        txtUbahPassword2 = new javax.swing.JPasswordField();
+        BtSelesaiUbahPw = new javax.swing.JButton();
+        txtUsername = new javax.swing.JTextField();
+        btCancel = new javax.swing.JButton();
+        txtPwbaru = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("URice");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Memulihkan akun anda");
 
-        jLabel3.setText("Masukkan password baru :");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Username anda                 :");
 
-        jLabel4.setText("Konfirmasi password baru :");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Masukkan password baru    :");
 
-        jButton1.setText("Selesai");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtSelesaiUbahPw.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        BtSelesaiUbahPw.setText("Selesai");
+        BtSelesaiUbahPw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtSelesaiUbahPwActionPerformed(evt);
             }
         });
 
-        txtUbahPassword1.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUbahPassword1ActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
+            }
+        });
+
+        btCancel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btCancel.setText("Batal");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelActionPerformed(evt);
+            }
+        });
+
+        txtPwbaru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPwbaruActionPerformed(evt);
             }
         });
 
@@ -66,27 +101,32 @@ public class setPasword extends javax.swing.JFrame {
         passwordBaruLayout.setHorizontalGroup(
             passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(passwordBaruLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(passwordBaruLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(passwordBaruLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUbahPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(passwordBaruLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUbahPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(passwordBaruLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
                         .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(passwordBaruLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel1))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(txtPwbaru))
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordBaruLayout.createSequentialGroup()
+                        .addGap(0, 160, Short.MAX_VALUE)
+                        .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordBaruLayout.createSequentialGroup()
+                                .addComponent(btCancel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtSelesaiUbahPw)
+                                .addGap(37, 37, 37))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordBaruLayout.createSequentialGroup()
+                                .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(passwordBaruLayout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jLabel1))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(169, 169, 169))))))
         );
         passwordBaruLayout.setVerticalGroup(
             passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,47 +135,82 @@ public class setPasword extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtUbahPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtUbahPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(txtPwbaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(passwordBaruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCancel)
+                    .addComponent(BtSelesaiUbahPw))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(128, Short.MAX_VALUE)
                 .addComponent(passwordBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(passwordBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(85, 85, 85)
+                .addComponent(passwordBaru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new FormLogin().setVisible(true);  
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtSelesaiUbahPwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSelesaiUbahPwActionPerformed
+        // mengubah password
+         try{
+             if (txtUsername.getText().equals("") || txtPwbaru.getText().equals("") ){
+                JOptionPane.showMessageDialog(this,"Data username atau password kosong","Pesan",JOptionPane.ERROR_MESSAGE);
+                
+            }else{
+                     String SQL = "Update pembeli set password='"+String.valueOf(txtPwbaru.getText())+"'WHERE username='"+txtUsername.getText()+"'";
+                     java.sql.Connection conn = (java.sql.Connection)perLoginan.konek.koneksiDB();
+                     java.sql.PreparedStatement pst = conn.prepareStatement(SQL);
+                     pst.execute();
+                
+                     JOptionPane.showMessageDialog(null, "Password berhasil diubah");
+                     clear();
+                     this.setVisible(false);
+                     new FormLogin().setVisible(true);
+                     
+                 }
+            
+             
+         }catch (HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+          
+    }//GEN-LAST:event_BtSelesaiUbahPwActionPerformed
 
-    private void txtUbahPassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbahPassword1ActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUbahPassword1ActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
+        // Jika user batal mengubah password
+        clear();
+        this.setVisible(false);
+        new FormLogin().setVisible(true); 
+    }//GEN-LAST:event_btCancelActionPerformed
+
+    private void txtPwbaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPwbaruActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPwbaruActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,13 +248,14 @@ public class setPasword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton BtSelesaiUbahPw;
+    private javax.swing.JButton btCancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel passwordBaru;
-    private javax.swing.JPasswordField txtUbahPassword1;
-    private javax.swing.JPasswordField txtUbahPassword2;
+    private javax.swing.JTextField txtPwbaru;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

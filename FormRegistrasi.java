@@ -1,33 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
+/*To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Beras;
+ * and open the template in the editor*/
+package perLoginan;
 
+import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
-import java.sql.PreparedStatement;
 
 /**
  *
  * @author USER
  */
 public class FormRegistrasi extends javax.swing.JFrame {
-     Connection con ;
-     Statement st ;
-     PreparedStatement pst;
-    /**
+     /**
      * Creates new form FormRegistrasi
      */
+    
+    public boolean databaru;
     public FormRegistrasi() {
         initComponents();
+        //mengatur agar jendela di tengah
+        //mendapat ukuran dari layar
+        Dimension Layar =Toolkit.getDefaultToolkit().getScreenSize();
+        
+        //mengatur titik x dan titik y
+        int x= Layar.width/2 - this.getSize().width/2;
+        int y= Layar.height/2 - this.getSize().height/2;
+        
+        this.setLocation(x, y);
+        
+        
+        
+        
     }    
     private void ClearLayar(){
+        databaru=true;
         txtNamaLengkap.setText("");
         txtNomorHP.setText("");
         txtPassword.setText("");
@@ -117,7 +128,7 @@ public class FormRegistrasi extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Daftar Akun Baru");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("URice");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -127,14 +138,6 @@ public class FormRegistrasi extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -148,28 +151,37 @@ public class FormRegistrasi extends javax.swing.JFrame {
                                 .addComponent(cbJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addComponent(txtNomorHP, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNamaLengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
                 .addGap(223, 223, 223))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel6)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -196,22 +208,24 @@ public class FormRegistrasi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtRegis)
                     .addComponent(BtBack))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -233,22 +247,20 @@ public class FormRegistrasi extends javax.swing.JFrame {
                 txtUsername.getText().equals("")){
                 JOptionPane.showMessageDialog(this,"Maaf , Data harus terisi semua","Pesan",JOptionPane.ERROR_MESSAGE);
                 ClearLayar();
-            }else{
-                Class.forName("con.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc.mysql://localhost/toko_beras","root","");
-                st = con.createStatement();
-                String simpan = "insert into pembeli (username, nama_lengkap, jenis_kelamin, no_hp, password) values ('"+txtUsername.getText()+"','"+txtNamaLengkap.getText()+"','"+cbJenisKelamin.getSelectedItem()+"','"+txtNomorHP.getText()+"','"+String.valueOf(txtPassword.getPassword())+"')";
-                                                       
-                 st = con.createStatement();
-                 int SA = st.executeUpdate(simpan);
-                 JOptionPane.showMessageDialog(this, "Registrasi Sukses");
-                 this.setVisible(false);
-                 new FormLogin().setVisible(true);
-            }     
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"Akun sudah ada sebelumnya","Pesan",JOptionPane.WARNING_MESSAGE);
+            }else{                
+                String Savesql = "insert into pembeli (username, nama_lengkap, jenis_kelamin, no_hp, password) values ('"+txtUsername.getText()+"','"+txtNamaLengkap.getText()+"','"+cbJenisKelamin.getSelectedItem()+"','"+txtNomorHP.getText()+"','"+String.valueOf(txtPassword.getPassword())+"')";
+                java.sql.Connection conn = (java.sql.Connection)perLoginan.konek.koneksiDB();
+                java.sql.PreparedStatement pst = conn.prepareStatement(Savesql);
+                pst.execute();
+                JOptionPane.showMessageDialog(this, "Registrasi Sukses");
+                this.setVisible(false);
+                new FormLogin().setVisible(true);
+                ClearLayar();
+        } 
+        }catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
             ClearLayar();
-        }
+            }
     }//GEN-LAST:event_BtRegisActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
@@ -259,7 +271,6 @@ public class FormRegistrasi extends javax.swing.JFrame {
         //kembali ke halaman login
                 this.setVisible(false);
                  new FormLogin().setVisible(true);   
-        
     }//GEN-LAST:event_BtBackActionPerformed
 
     /**

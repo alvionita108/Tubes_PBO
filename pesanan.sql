@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2020 at 08:40 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.59
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,34 +18,64 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `toko_beras`
+-- Database: `tokoberas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan`
+-- Struktur dari tabel `pesanan`
 --
 
 CREATE TABLE `pesanan` (
-  `kode_pesanan` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `kode_pesanan` int(10) NOT NULL,
   `jumlah_pembelian` int(5) NOT NULL,
-  `tgl_transaksi` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `kode_beras` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `tgl_transaksi` date NOT NULL,
+  `kode_beras` varchar(7) CHARACTER SET utf8mb4 NOT NULL,
   `id_pembeli` int(4) NOT NULL,
-  `no_order` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `alamat_kirim` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+  `alamat_kirim` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `Status_pembayaran` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pesanan`
+--
+
+INSERT INTO `pesanan` (`kode_pesanan`, `jumlah_pembelian`, `tgl_transaksi`, `kode_beras`, `id_pembeli`, `alamat_kirim`, `Status_pembayaran`) VALUES
+(16552, 2, '2020-05-17', 'MRP102', 1235, 'Kedaton', 'LUNAS');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `pesanan`
+-- Indeks untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`kode_pesanan`);
+  ADD PRIMARY KEY (`kode_pesanan`),
+  ADD UNIQUE KEY `id_pembeli` (`id_pembeli`),
+  ADD UNIQUE KEY `kode_beras` (`kode_beras`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `kode_pesanan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16553;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`kode_beras`) REFERENCES `beras` (`kode_beras`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

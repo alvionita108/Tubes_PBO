@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Bulan Mei 2020 pada 14.28
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.58
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.27
+-- Versi PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,7 +55,12 @@ INSERT INTO `pembeli` (`id_pembeli`, `nama_lengkap`, `Jenis_kelamin`, `no_hp`) V
 (1249, 'Boboi Boysan', 'Pria', '081723456543'),
 (1250, 'Heri Sentosa', 'Pria', '087765554566'),
 (1251, 'Budi', 'Pria', '081122212134'),
-(1252, 'Herman Santoso', 'Pria', '087766557788');
+(1252, 'Herman Santoso', 'Pria', '087766557788'),
+(1253, 'Rahmat', 'Pria', '088276647223'),
+(1254, 'Setiawan', 'Pria', '088675542234'),
+(1255, 'Nilham Perdana', 'Pria', '087865446533'),
+(1256, 'Vina Al', 'Wanita', '099876546789'),
+(1257, 'Deo Alif', 'Pria', '088876657654');
 
 --
 -- Indexes for dumped tables
@@ -77,7 +81,7 @@ ALTER TABLE `pembeli`
 -- AUTO_INCREMENT untuk tabel `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `id_pembeli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1253;
+  MODIFY `id_pembeli` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1258;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

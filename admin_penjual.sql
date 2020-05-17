@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Bulan Mei 2020 pada 14.26
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.58
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.27
+-- Versi PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,7 @@ CREATE TABLE `admin_penjual` (
 --
 
 INSERT INTO `admin_penjual` (`username`, `nama_lengkap`, `no_hp`, `Jenis_kelamin`, `alamat`, `password`, `id_penjual`) VALUES
-('Admin', 'Joko Suseno', '081265758383', 'Pria', 'Jl. Burung Merpati, Gg. Kelapa, No 5, Lampung', 'J_123456', 332211);
+('Admin', 'Joko Suseno', '081265758383', 'Pria', 'Jl. Burung Merpati, Gg. Kelapa, No 5, Lampung', '0909popo', 332211);
 
 --
 -- Indexes for dumped tables

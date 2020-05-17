@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Bulan Mei 2020 pada 10.39
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.58
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_penjual` (
-  `username` char(6) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `nama_lengkap` varchar(25) NOT NULL,
   `no_hp` varchar(13) NOT NULL,
   `Jenis_kelamin` varchar(6) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `password` char(8) NOT NULL,
+  `password` varchar(20) NOT NULL,
   `id_penjual` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin_penjual` (
 --
 
 INSERT INTO `admin_penjual` (`username`, `nama_lengkap`, `no_hp`, `Jenis_kelamin`, `alamat`, `password`, `id_penjual`) VALUES
-('Admin', 'Joko Suseno', '081265758383', 'Pria', 'Jl. Burung Merpati, Gg. Kelapa, No 5, Lampung', 'J_123456', 332211);
+('Admin', 'Joko Suseno', '081265758383', 'Pria', 'Jl. Burung Merpati, Gg. Kelapa, No 5, Lampung', '0909popo', 332211);
 
 --
 -- Indexes for dumped tables

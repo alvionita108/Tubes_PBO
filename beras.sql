@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Bulan Mei 2020 pada 10.39
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.58
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `beras` (
   `merk_beras` varchar(10) NOT NULL,
   `harga` float NOT NULL,
-  `berat_karung` varchar(4) NOT NULL,
+  `jenis_beras` varchar(4) NOT NULL,
   `kode_beras` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,7 +38,7 @@ CREATE TABLE `beras` (
 -- Dumping data untuk tabel `beras`
 --
 
-INSERT INTO `beras` (`merk_beras`, `harga`, `berat_karung`, `kode_beras`) VALUES
+INSERT INTO `beras` (`merk_beras`, `harga`, `jenis_beras`, `kode_beras`) VALUES
 ('KOKI', 170000, '10kg', 'KK101'),
 ('KOKI', 90000, '5kg', 'KK102'),
 ('MERPATI', 145000, '10kg', 'MRP101'),

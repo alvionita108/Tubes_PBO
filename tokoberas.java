@@ -18,6 +18,7 @@ public class tokoberas {
     private static Connection tokoberas;
     public static Connection configDB() throws SQLException{
         try{
+            
             String url = "jdbc:mysql://localhost/tokoberas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
             String user = "root";
             String pass = "";

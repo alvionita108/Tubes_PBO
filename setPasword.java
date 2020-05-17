@@ -177,7 +177,7 @@ public class setPasword extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Data username atau password kosong","Pesan",JOptionPane.ERROR_MESSAGE);
                 
             }else{
-                     String SQL = "Update pembeli set password='"+String.valueOf(txtPwbaru.getText())+"'WHERE username='"+txtUsername.getText()+"'";
+                     String SQL = "Update admin_penjual set password='"+String.valueOf(txtPwbaru.getText())+"'WHERE username='"+txtUsername.getText()+"'";
                      java.sql.Connection conn = (java.sql.Connection)perLoginan.konek.koneksiDB();
                      java.sql.PreparedStatement pst = conn.prepareStatement(SQL);
                      pst.execute();

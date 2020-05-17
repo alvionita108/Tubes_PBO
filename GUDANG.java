@@ -10,6 +10,9 @@ import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import Admin.menuAdmin;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author LEGION
@@ -52,6 +55,16 @@ public class GUDANG extends javax.swing.JFrame {
         initComponents();
         tampilkan();
         kosongkan();
+        
+        //mengatur agar jendela di tengah
+        //mendapat ukuran dari layar
+        Dimension Layar =Toolkit.getDefaultToolkit().getScreenSize();
+        
+        //mengatur titik x dan titik y
+        int x= Layar.width/2 - this.getSize().width/2;
+        int y= Layar.height/2 - this.getSize().height/2;
+        
+        this.setLocation(x, y);
         
     }
 
@@ -109,23 +122,15 @@ public class GUDANG extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("GUDANG BERAS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 10, -1, 28));
 
         jLabel2.setText("Kode Beras");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel3.setText("Merk Beras");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jLabel4.setText("Stok Beras");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 80, -1));
-        getContentPane().add(txtKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 211, -1));
-        getContentPane().add(txtMerk, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 211, -1));
-        getContentPane().add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 211, -1));
 
         tbHapus.setText("Hapus");
         tbHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -133,16 +138,13 @@ public class GUDANG extends javax.swing.JFrame {
                 tbHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(tbHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
-        tbOut.setForeground(new java.awt.Color(255, 51, 0));
-        tbOut.setText("X");
+        tbOut.setText("Back");
         tbOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbOutActionPerformed(evt);
             }
         });
-        getContentPane().add(tbOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
         tbSave.setText("Simpan");
         tbSave.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +152,6 @@ public class GUDANG extends javax.swing.JFrame {
                 tbSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(tbSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
         tabelGudang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,22 +171,96 @@ public class GUDANG extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tabelGudang);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 360, 120));
-
         tbEdit.setText("Edit Data");
         tbEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbEditActionPerformed(evt);
             }
         });
-        getContentPane().add(tbEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 80, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(47, 47, 47)
+                                    .addComponent(txtMerk, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tbSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tbEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(tbHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tbOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jLabel1)))
+                .addGap(30, 30, 30))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtMerk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tbOut)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tbSave)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbHapus))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbOutActionPerformed
-            System.exit(0);
-    }//GEN-LAST:event_tbOutActionPerformed
+    private void tabelGudangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelGudangMouseClicked
+        int baris = tabelGudang.rowAtPoint (evt.getPoint());
+        String merk = tabelGudang.getValueAt(baris, 1).toString();
+        txtMerk.setText(merk);
+        String kode = tabelGudang.getValueAt(baris, 2).toString();
+        txtKode.setText(kode);
+        String stok = tabelGudang.getValueAt(baris, 3).toString();
+        txtStok.setText(stok);
+    }//GEN-LAST:event_tabelGudangMouseClicked
 
     private void tbSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbSaveActionPerformed
         try{
@@ -196,36 +271,11 @@ public class GUDANG extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
             tampilkan();
             kosongkan();
-            
+
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_tbSaveActionPerformed
-
-    private void tabelGudangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelGudangMouseClicked
-        int baris = tabelGudang.rowAtPoint (evt.getPoint());
-        String merk = tabelGudang.getValueAt(baris, 1).toString();
-        txtMerk.setText(merk);
-        String kode = tabelGudang.getValueAt(baris, 2).toString();
-        txtKode.setText(kode);
-        String stok = tabelGudang.getValueAt(baris, 3).toString();
-        txtStok.setText(stok);
-
-    }//GEN-LAST:event_tabelGudangMouseClicked
-
-    private void tbEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbEditActionPerformed
-        try{
-            String sql = "UPDATE gudang SET merk_beras='"+txtMerk.getText()+"',kode_beras='"+txtKode.getText()+"',stok='"+txtStok.getText()+"',id_penjual='332211' WHERE kode_beras='"+txtKode.getText()+"'";
-            java.sql.Connection conn = (Connection)tokoberas.configDB();
-            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.execute();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
-        }catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-        tampilkan();
-        kosongkan();
-    }//GEN-LAST:event_tbEditActionPerformed
 
     private void tbHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbHapusActionPerformed
         try{
@@ -241,6 +291,26 @@ public class GUDANG extends javax.swing.JFrame {
         kosongkan();
         // TODO add your handling code here:
     }//GEN-LAST:event_tbHapusActionPerformed
+
+    private void tbEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbEditActionPerformed
+        try{
+            String sql = "UPDATE gudang SET merk_beras='"+txtMerk.getText()+"',kode_beras='"+txtKode.getText()+"',stok='"+txtStok.getText()+"',id_penjual='332211' WHERE kode_beras='"+txtKode.getText()+"'";
+            java.sql.Connection conn = (Connection)tokoberas.configDB();
+            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        tampilkan();
+        kosongkan();
+    }//GEN-LAST:event_tbEditActionPerformed
+
+    private void tbOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbOutActionPerformed
+        //Kembali ke menu
+        this.setVisible(false);
+        new menuAdmin().setVisible(true);
+    }//GEN-LAST:event_tbOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,10 +340,8 @@ public class GUDANG extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUDANG().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GUDANG().setVisible(true);
         });
     }
 

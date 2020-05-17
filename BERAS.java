@@ -5,6 +5,9 @@
  */
 package PerBerasan;
 
+import Admin.menuAdmin;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
@@ -18,7 +21,7 @@ public class BERAS extends javax.swing.JFrame {
             
             try{
                 int no = 1;
-                String sql = "SELECT merk_beras, harga, berat_karung FROM beras";
+                String sql = "SELECT merk_beras, harga, jenis_beras FROM beras";
                 java.sql.Connection conn = (Connection)tokoberas.configDB();
                 java.sql.Statement sta = conn.createStatement();
                 java.sql.ResultSet res = sta.executeQuery(sql);
@@ -37,6 +40,17 @@ public class BERAS extends javax.swing.JFrame {
     public BERAS() {
         initComponents();
         tampilkan();
+        
+       
+        //mengatur agar jendela di tengah
+        //mendapat ukuran dari layar
+        Dimension Layar =Toolkit.getDefaultToolkit().getScreenSize();
+        
+        //mengatur titik x dan titik y
+        int x= Layar.width/2 - this.getSize().width/2;
+        int y= Layar.height/2 - this.getSize().height/2;
+        
+        this.setLocation(x, y);
     }
 
     /**
@@ -59,8 +73,7 @@ public class BERAS extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("BERAS YANG DIJUAL");
 
-        tbExit.setForeground(new java.awt.Color(255, 51, 51));
-        tbExit.setText("X");
+        tbExit.setText("Back");
         tbExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbExitActionPerformed(evt);
@@ -92,28 +105,31 @@ public class BERAS extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(238, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(60, 60, 60)
-                        .addComponent(tbExit))
+                        .addGap(210, 210, 210))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tbLanjut, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(tbExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(tbLanjut)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbExit)
-                    .addComponent(jLabel1))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(tbLanjut)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tbLanjut)
+                    .addComponent(tbExit))
                 .addContainerGap())
         );
 
@@ -121,11 +137,16 @@ public class BERAS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbExitActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        //kembali ke menu
+        this.setVisible(false);
+        new menuAdmin().setVisible(true); 
+               
+               
     }//GEN-LAST:event_tbExitActionPerformed
 
     private void tbLanjutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbLanjutActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new pesanan().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_tbLanjutActionPerformed
 
     /**
@@ -156,10 +177,8 @@ public class BERAS extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BERAS().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new BERAS().setVisible(true);
         });
     }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Bulan Mei 2020 pada 10.39
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 15.58
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `gudang` (
   `merk_beras` varchar(20) NOT NULL,
   `kode_beras` varchar(7) NOT NULL,
-  `stok` int(4) NOT NULL,
+  `stok` int(5) NOT NULL,
   `id_penjual` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
